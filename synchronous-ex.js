@@ -119,12 +119,13 @@ var synchronous_mock_download = function(inst) {
     var tm = new Timer('  ' + inst.url);
     tm.start();
 //    var delay_us =  450000;
+    var delay_us = inst.delay_ms;           // Store delay times from inst.
+    delay_us = delay_us.toFixed(0);         // Remove digits after decimer points. If delay_us has below decimal point, sleep shows error.
+    sleep.usleep(Number(delay_us) * 1000);  // Multiple by 1000 for "Synchronous elapsed time"
 //    sleep.usleep(delay_us);
-    var delay_us = inst.delay_ms;
+
     tm.elapsed();
-//  console.log(inst.delay_ms);
-//    return inst.delay_ms;
-  return delay_us;
+    return inst.delay_ms;
 };
 
 /*
@@ -140,7 +141,7 @@ var synchronous_example = function(insts) {
         results.push(synchronous_mock_download(insts[ii]));
     }
     summarize(results);
-    //console.log(results);
+
     tm.elapsed();
 };
 
