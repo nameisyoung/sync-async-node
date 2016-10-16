@@ -122,7 +122,9 @@ var synchronous_mock_download = function(inst) {
     sleep.usleep(delay_us);
     tm.elapsed();
 //  console.log("synchronous_mock_download > inst.delay_ms:" + inst.delay_ms);
-    return inst.delay_ms;
+//  console.log(tm.dt);
+//    return inst.delay_ms;
+    return tm.dt;
 };
 
 /*
