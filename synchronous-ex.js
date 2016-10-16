@@ -118,13 +118,13 @@ var summarize = function(results) {
 var synchronous_mock_download = function(inst) {
     var tm = new Timer('  ' + inst.url);
     tm.start();
-    var delay_us =  450000;
-    sleep.usleep(delay_us);
+//    var delay_us =  450000;
+//    sleep.usleep(delay_us);
+    var delay_us = inst.delay_ms;
     tm.elapsed();
-//  console.log("synchronous_mock_download > inst.delay_ms:" + inst.delay_ms);
-//  console.log(tm.dt);
+//  console.log(inst.delay_ms);
 //    return inst.delay_ms;
-    return tm.dt;
+  return delay_us;
 };
 
 /*
@@ -140,6 +140,7 @@ var synchronous_example = function(insts) {
         results.push(synchronous_mock_download(insts[ii]));
     }
     summarize(results);
+    //console.log(results);
     tm.elapsed();
 };
 
