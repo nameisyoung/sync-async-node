@@ -118,8 +118,8 @@ var summarize = function(results) {
 var synchronous_mock_download = function(inst) {
     var tm = new Timer('  ' + inst.url);
     tm.start();
-    // var delay_us =  1000000;
-    // sleep.usleep(delay_us);
+    var delay_us =  450000;
+    sleep.usleep(delay_us);
     tm.elapsed();
 //  console.log("synchronous_mock_download > inst.delay_ms:" + inst.delay_ms);
     return inst.delay_ms;
@@ -211,8 +211,8 @@ var asynchronous_example = function(insts) {
 var main = function() {
     var nn = 5;
     var insts = build_insts(nn);
-    asynchronous_example(insts);
     synchronous_example(insts);
+    asynchronous_example(insts);
 };
 
 main();
